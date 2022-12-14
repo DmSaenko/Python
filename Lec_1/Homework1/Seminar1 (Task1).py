@@ -6,6 +6,7 @@
 # - 7 -> да
 # - 1 -> нет
 
+
 number = int(input("Введите число дня недели от 1 до 7: "))
 
 if number < 1 or number > 7:
@@ -13,5 +14,5 @@ if number < 1 or number > 7:
 elif number > 5:
     print('Это выходной день!')
 else:
-    print('Это рабочий день!')
+    print(f'Это рабочий день!')
     
