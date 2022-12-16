@@ -19,4 +19,4 @@ print (f'Точка А: {ax, ay}' )
 print (f'Точка B: {bx, by}' )
 
 print(f'Растояние от точки A до точки B = {distance}' )
-      
+#     print('{:.3f}'.format(a), sep='')
