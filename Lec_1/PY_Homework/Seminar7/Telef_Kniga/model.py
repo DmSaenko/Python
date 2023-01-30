@@ -6,7 +6,7 @@ class Options:
     phone_book_copy = []
     path = ''
 
-    def __init__(self, path: str = r'Seminar7\txt\data.txt'):
+    def __init__(self, path: str = r'C:\Users\dmsae\OneDrive\Рабочий стол\Python\Lec_1\PY_Homework\Seminar7\Telef_Kniga\txt\data.txt'):
         self.path = path
 
     def get(self):

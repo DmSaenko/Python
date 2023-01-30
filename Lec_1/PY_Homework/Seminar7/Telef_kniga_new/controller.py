@@ -3,7 +3,6 @@ import view
 import model
 
 def start():
-    view.main_menu()
     
     user_choice = 0
     while user_choice != 8:
@@ -28,12 +27,15 @@ def start():
                                
             case 5:
                 pass
+            
             case 6:
-                pass
+                index = view.del_item()
+                model.delete(index)
+            
             case 7:
                 search = view.find_contact()
                 result = model.search_contact(search)
-                view.show_contacts(result)
+                view.show_contact(result)
                 
             
             
