@@ -7,7 +7,7 @@ class data:
     def imp_num(self) -> str:        
 
         with open(r'Lec_1\PY_Homework\Seminar8\school_classes\list_of_classes.txt', 'r', encoding='UTF-8') as file:
-            open_names = file.read().split(',') # Возможно, стоит это вынести в отдельную функцию 
+            open_names = file.read().split(',') 
 
         while True:
             num = input('Какой класс?').lower()
