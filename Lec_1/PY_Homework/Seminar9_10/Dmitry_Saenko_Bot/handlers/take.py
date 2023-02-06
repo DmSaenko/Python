@@ -5,6 +5,10 @@ from aiogram.types import Message
 import game
 
 
+
+
+
+
 @dp.message_handler()
 async def mes_help(message: Message):
     for duel in game.total:
