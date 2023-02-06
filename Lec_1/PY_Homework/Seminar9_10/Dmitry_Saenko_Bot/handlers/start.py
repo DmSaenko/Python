@@ -2,10 +2,12 @@ import game
 from loader import dp
 from aiogram.types import Message
 
-
-    
-    
+   
 @dp.message_handler(commands=['start'])
+
+start_num = {}
+start_num[id] = [150, 0]  
+
 async def mes_start(message: Message):
     for duel in game.total:
         if message.from_user.id == duel[0]:
