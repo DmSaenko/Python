@@ -1,24 +1,25 @@
-import game
 from loader import dp
 from aiogram.types import Message
+from game import max_total, total
+from random import randint as RI
 
-   
+
 @dp.message_handler(commands=['start'])
-
-start_num = {}
-start_num[message.from_user.id] = [150, 0]  
-
 async def mes_start(message: Message):
-    for duel in game.total:
-        if message.from_user.id == duel[0]:
-            await message.answer('Ты уже начал игру! Играй давай!')
-            break
+
+    candy = max_total
+    if len(message.text) > 6:
+        candy = message.text[6:].replace(' ', '')
+    total[message.from_user.id] = candy
+    await message.answer(f'Привет, {message.from_user.full_name} Сыграем в конфеты. У нас есть {total[message.from_user.id]} конфет\nБот Семен и ты берете конфеты по очереди \nМожно взять от 1 до 28 конфет. Выигрывет тот, кто возьмет последние конфеты на столе')
+
+    dispute = RI(0,1)
+
+    if dispute:
+        await message.answer(f'Твой ход!')
     else:
-        # game.new_game = True
-        await message.answer(f'Привет, {message.from_user.full_name}'\n,
-                            'Сыграем в конфеты. У нас есть 150 конфет.'\n
-                            'Бот Семен и ты берете конфеты по очереди.'\n 
-                            'Можно взять от 1 до 28 конфет. Выигрывет тот, кто возьмет последние конфеты на столе.'\n
-                            'Твой ход')\n      
-        my_game = [message.from_user.id, message.from_user.first_name, 150]
-        game.total.append(my_game)
+        num = RI(1, 28)
+        total[message.from_user.id] -= num
+        await message.answer(f'Первый ход за Cеменом!\n Семен взял {num}, осталось {total[message.from_user.id]}')
+        await message.answer(f'Твой ход')
+
